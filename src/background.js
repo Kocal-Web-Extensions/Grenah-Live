@@ -12,6 +12,10 @@ import {
 import { config } from './config';
 
 const app = () => {
+  if (process.env.NODE_ENV === 'development') console.log('app()');
+
+  let isOnline = false;
+
   registerTwitchApiKeys(config.twitchApiKeys);
 
   onNotificationClick(() => createTab({ url: config.streamUrl }));
@@ -21,22 +25,29 @@ const app = () => {
   setInterval(onTick, (process.env.NODE_ENV === 'development' ? 10 : 60) * 1000);
 
   function onTick() {
-    getTwitchLiveStreams([config.channelId]).then(({ onlineStreams, offlineStreams }) => {
-      console.log({ onlineStreams, offlineStreams });
+    if (process.env.NODE_ENV === 'development') console.log('onTick()');
 
+    getTwitchLiveStreams([config.channelId]).then(({ onlineStreams, offlineStreams }) => {
       if (onlineStreams.length > 0) {
         const stream = onlineStreams[0];
-        markAsOnline();
-        createNotification({
-          type: 'basic',
-          title: `${stream.user_name} est en live sur ${stream.game.name} !`,
-          message: stream.title,
-          iconUrl: 'icons/icon_128.png',
-        });
-        setBrowserActionTitle(`${stream.user_name} joue à ${stream.game.name} devant ${stream.viewer_count} viewers\n${stream.title}`);
+
+        setBrowserActionTitle(`${config.name} joue à ${stream.game.name} devant ${stream.viewer_count} viewers\n${stream.title}`);
+
+        if (!isOnline) {
+          isOnline = true;
+
+          markAsOnline();
+          createNotification({
+            type: 'basic',
+            title: `${config.name} est en live sur ${stream.game.name} !`,
+            message: stream.title,
+            iconUrl: 'icons/icon_128.png',
+          });
+        }
       } else if (offlineStreams.length > 0) {
         markAsOffline();
         setBrowserActionTitle(require('./manifest.json').name);
+        isOnline = false;
       }
     });
   }
