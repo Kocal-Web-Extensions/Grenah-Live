@@ -1,5 +1,5 @@
 {
-  "name": "grenah-live",
+  "name": "Grenah Live",
   "description": "Extension navigateur pour la streameuse Grenah",
   "version": null,
   "manifest_version": 2,
@@ -8,8 +8,7 @@
     "128": "icons/icon_128.png"
   },
   "browser_action": {
-    "default_title": "grenah-live",
-    "default_popup": "popup/popup.html"
+    "default_title": "Grenah"
   },
   "background": {
     "scripts": [

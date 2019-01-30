@@ -12,7 +12,6 @@ const config = {
   context: __dirname + '/src',
   entry: {
     'background': './background.js',
-    'popup/popup': './popup/popup.js',
   },
   output: {
     path: __dirname + '/dist',
@@ -60,7 +59,6 @@ const config = {
     }),
     new CopyWebpackPlugin([
       { from: 'icons', to: 'icons', ignore: ['icon.xcf'] },
-      { from: 'popup/popup.html', to: 'popup/popup.html', transform: transformHtml },
       {
         from: 'manifest.json',
         to: 'manifest.json',
@@ -96,12 +94,6 @@ if (process.env.HMR === 'true') {
   config.plugins = (config.plugins || []).concat([
     new ChromeExtensionReloader(),
   ]);
-}
-
-function transformHtml(content) {
-  return ejs.render(content.toString(), {
-    ...process.env,
-  });
 }
 
 module.exports = config;
