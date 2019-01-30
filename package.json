@@ -4,9 +4,9 @@
   "description": "Extension navigateur pour la streameuse Grenah",
   "author": "Hugo Alliaume <kocal@live.fr>",
   "scripts": {
-    "lint": "eslint --ext .js,.vue src",
+    "lint": "eslint --ext .js src",
     "precommit": "pretty-quick --staged",
-    "prettier": "prettier \"src/**/*.{js,vue}\"",
+    "prettier": "prettier \"src/**/*.{js}\"",
     "prettier:write": "npm run prettier -- --write",
     "build": "cross-env NODE_ENV=production webpack --hide-modules",
     "build:dev": "cross-env NODE_ENV=development webpack --hide-modules",
@@ -15,8 +15,7 @@
     "watch:dev": "cross-env HMR=true npm run build:dev -- --watch"
   },
   "dependencies": {
-    "@kocal/web-extension-library": "^1.1.0",
-    "vue": "^2.5.17"
+    "@kocal/web-extension-library": "^1.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -40,7 +39,6 @@
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^5.0.0-beta.3",
     "file-loader": "^1.1.11",
     "husky": "^0.14.3",
     "mini-css-extract-plugin": "^0.4.4",
@@ -48,8 +46,6 @@
     "prettier": "^1.14.3",
     "pretty-quick": "^1.8.0",
     "sass-loader": "^7.1.0",
-    "vue-loader": "^15.4.2",
-    "vue-template-compiler": "^2.5.17",
     "webpack": "^4.20.2",
     "webpack-chrome-extension-reloader": "^0.8.3",
     "webpack-cli": "^3.1.2",

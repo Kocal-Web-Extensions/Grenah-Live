@@ -4,28 +4,20 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackShellPlugin = require('webpack-shell-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ChromeExtensionReloader = require('webpack-chrome-extension-reloader');
-const { VueLoaderPlugin } = require('vue-loader');
 const { version } = require('./package.json');
 
 const config = {
   mode: process.env.NODE_ENV,
   context: __dirname + '/src',
   entry: {
-    'background': './background.js',
+    background: './background.js',
   },
   output: {
     path: __dirname + '/dist',
     filename: '[name].js',
   },
-  resolve: {
-    extensions: ['.js', '.vue'],
-  },
   module: {
     rules: [
-      {
-        test: /\.vue$/,
-        loaders: 'vue-loader',
-      },
       {
         test: /\.js$/,
         loader: 'babel-loader',
@@ -53,7 +45,6 @@ const config = {
     ],
   },
   plugins: [
-    new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
@@ -62,7 +53,7 @@ const config = {
       {
         from: 'manifest.json',
         to: 'manifest.json',
-        transform: (content) => {
+        transform: content => {
           const jsonContent = JSON.parse(content);
           jsonContent.version = version;
 
@@ -91,9 +82,7 @@ if (config.mode === 'production') {
 }
 
 if (process.env.HMR === 'true') {
-  config.plugins = (config.plugins || []).concat([
-    new ChromeExtensionReloader(),
-  ]);
+  config.plugins = (config.plugins || []).concat([new ChromeExtensionReloader()]);
 }
 
 module.exports = config;
