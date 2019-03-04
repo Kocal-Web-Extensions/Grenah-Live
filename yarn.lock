@@ -4743,11 +4743,6 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-ultron@~1.1.0:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/ultron/-/ultron-1.1.1.tgz#9fe1536a10a664a65266a1e3ccf85fd36302bc9c"
-  integrity sha512-UIEXBNeYmKptWH6z8ZnqTeS8fV74zG0/eRU9VGkpzz+LIJNs8W/zM/L+7ctCkRrgbNnnR0xxw4bKOr0cW0N0Og==
-
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/unicode-canonical-property-names-ecmascript/-/unicode-canonical-property-names-ecmascript-1.0.4.tgz#2619800c4c825800efdd8343af7dd9933cbe2818"
@@ -4894,16 +4889,16 @@ webextension-polyfill@^0.3.1:
   resolved "https://registry.yarnpkg.com/webextension-polyfill/-/webextension-polyfill-0.3.1.tgz#fab2aed917a713a5d8221e41febad81c5d0b080f"
   integrity sha512-ISB42vlgMyM7xE1u6pREeCqmmXjLsYu/nqAR8Dl/gIAnylb+KpRpvKbVkUYNFePhhXn0Obkkc3jasOII9ztUtg==
 
-webpack-chrome-extension-reloader@^0.8.3:
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/webpack-chrome-extension-reloader/-/webpack-chrome-extension-reloader-0.8.3.tgz#cbe87829d026f23f85e68e0d929e9815f6ccd532"
-  integrity sha1-y+h4KdAm8j+F5o4Nkp6YFfbM1TI=
+webpack-chrome-extension-reloader@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/webpack-chrome-extension-reloader/-/webpack-chrome-extension-reloader-1.2.0.tgz#c1053179baa02bd048046b5c8735cf2bf14e29b4"
+  integrity sha512-nhRb7jm7UUyEqSaSeWjA9e4eQFAqkcmEi66TMoYit6m0cI/ofTp8/rBjsHkutZTCCgzAu05ubaw7alMK95xCvw==
   dependencies:
     colors "^1.1.2"
     lodash "^4.17.4"
     minimist "^1.2.0"
     webpack-sources "^1.0.1"
-    ws "^3.3.3"
+    ws "^6.1.2"
 
 webpack-cli@^3.1.2:
   version "3.2.1"
@@ -5018,14 +5013,12 @@ write@^0.2.1:
   dependencies:
     mkdirp "^0.5.1"
 
-ws@^3.3.3:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-3.3.3.tgz#f1cf84fe2d5e901ebce94efaece785f187a228f2"
-  integrity sha512-nnWLa/NwZSt4KQJu51MYlCcSQ5g7INpOrOMt4XV8j4dqTXdmlUmSHQ8/oLC069ckre0fRsgfvsKwbTdtKLCDkA==
+ws@^6.1.2:
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-6.1.4.tgz#5b5c8800afab925e94ccb29d153c8d02c1776ef9"
+  integrity sha512-eqZfL+NE/YQc1/ZynhojeV8q+H050oR8AZ2uIev7RU10svA9ZnJUddHcOUZTJLinZ9yEfdA2kSATS2qZK5fhJA==
   dependencies:
     async-limiter "~1.0.0"
-    safe-buffer "~5.1.0"
-    ultron "~1.1.0"
 
 xtend@^4.0.0, xtend@~4.0.1:
   version "4.0.1"
